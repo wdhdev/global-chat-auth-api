@@ -1,6 +1,9 @@
+import github from "../endpoints/github";
+import githubCallback from "../endpoints/github/callback";
+
 export default {
     github: {
-        callback: require("../endpoints/github/callback"),
-        index: require("../endpoints/github")
+        callback: githubCallback,
+        index: github
     }
 }
