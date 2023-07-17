@@ -1,12 +1,13 @@
-const Sentry = require("@sentry/node");
-const axios = require("axios");
-const querystring = require("node:querystring");
+import { Request, Response } from "express";
+import * as Sentry from "@sentry/node";
+import axios from "axios";
+import querystring from "node:querystring";
 
-const AuthToken = require("../../models/AuthToken");
-const GitHubUser = require("../../models/GitHubUser");
+import AuthToken from "../../models/AuthToken";
+import GitHubUser from "../../models/GitHubUser";
 
-module.exports = async (req, res) => {
-    const code = req.query.code;
+export default async (req: Request, res: Response) => {
+    const code = req.query.code as string;
     const user = req.query.user;
     const token = req.query.token;
 
@@ -51,7 +52,7 @@ module.exports = async (req, res) => {
 
         let userEmail = "";
 
-        emailData.forEach(e => {
+        emailData.forEach((e: any) => {
             if(e.primary) userEmail = e.email;
         })
 

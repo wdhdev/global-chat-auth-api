@@ -1,8 +1,9 @@
-const querystring = require("node:querystring");
+import { Request, Response } from "express";
+import querystring from "node:querystring";
 
-const AuthToken = require("../models/AuthToken");
+import AuthToken from "../models/AuthToken";
 
-module.exports = async (req, res) => {
+export default async (req: Request, res: Response) => {
     const user = req.query.user;
     const token = req.query.token;
 

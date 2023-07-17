@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
     _id: String,
@@ -11,4 +11,4 @@ const schema = new mongoose.Schema({
     lastUpdated: String
 })
 
-module.exports = mongoose.model("github-users", schema, "github-users")
+export default mongoose.model("github-users", schema, "github-users")
