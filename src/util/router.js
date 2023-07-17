@@ -4,7 +4,7 @@ const router = Router();
 const routes = require("./routes");
 
 router.get("/github", async (req, res) => {
-    routes.github.index(req, res, client);
+    routes.github.index(req, res);
 })
 
 router.get("/github/callback", async (req, res) => {
