@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import querystring from "node:querystring";
 
-import AuthToken from "../models/AuthToken";
+import AuthToken from "../../models/AuthToken";
 
 export default async (req: Request, res: Response) => {
     const user = req.query.user;
