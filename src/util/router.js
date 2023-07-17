@@ -8,7 +8,7 @@ router.get("/github", async (req, res) => {
 })
 
 router.get("/github/callback", async (req, res) => {
-    routes.github.callback(req, res, client);
+    routes.github.callback(req, res);
 })
 
 module.exports = router;
