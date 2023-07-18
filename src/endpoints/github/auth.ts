@@ -17,7 +17,7 @@ export default async (req: Request, res: Response) => {
     const params = querystring.stringify({
         client_id: process.env.github_client_id,
         redirect_uri: `https://gc-auth.wdh.gg/github/callback?user=${user}&token=${token}`,
-        scope: "read:user user:email repo:invite"
+        scope: "public_repo read:user user:email"
     })
 
     res.redirect(`https://github.com/login/oauth/authorize?${params}`);
