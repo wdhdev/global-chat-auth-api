@@ -11,10 +11,6 @@ router.get("/github/callback", async (req: Request, res: Response) => {
     routes.github.callback(req, res);
 })
 
-router.get("/github/linked", async (req: Request, res: Response) => {
-    routes.github.linked(req, res);
-})
-
 router.get("/stats", async (req: Request, res: Response) => {
     routes.stats(req, res);
 })
