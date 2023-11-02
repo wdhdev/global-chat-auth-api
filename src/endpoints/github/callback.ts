@@ -11,6 +11,7 @@ export default async (req: Request, res: Response) => {
     const user = req.query.user;
     const token = req.query.token;
 
+    if(req.query.error) return res.render("github/error");
     if(!code) return res.status(400).json({ message: "No code specified.", code: "NO_CODE" });
     if(!user) return res.status(400).json({ message: "No user ID specified.", code: "NO_USER_ID" });
     if(!token) return res.status(400).json({ message: "No token specified.", code: "NO_TOKEN" });
@@ -19,7 +20,7 @@ export default async (req: Request, res: Response) => {
 
     if(!tokenData) return res.status(401).json({ message: "Invalid token specified.", code: "INVALID_TOKEN" });
 
-    await tokenData.delete();
+    await tokenData.deleteOne();
 
     const params = querystring.stringify({
         client_id: process.env.github_client_id,
